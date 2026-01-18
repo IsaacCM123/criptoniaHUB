@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Foro Abierto</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+
+    <div id="modal" class="modal"></div><!-- Aqui se insertara la ventana modal para registrar su nombre con J.S. -->
+    <br/><br/><br/><br/>
+    <label id="userLabel"></label><br/><!-- Aqui se insertara el nombre del USUARIO registrado -->
+    <textarea id="commentInput">Comenta...</textarea><br/><!-- Campo para que comente el USUARIO registrado -->
+    <button id="agregarNombre" onclick="addComment()">Comentar</button><!-- Guardar su comentario en la BASE DE DATOS -->
+
+    <div id="comments"></div><!-- Aqui se insertara todos los comentarios, LIKE, DISLIKE con J.S. -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
