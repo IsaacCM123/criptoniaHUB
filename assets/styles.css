@@ -1,6 +1,12 @@
 *{
   font-family: sans-serif;
 }
+body{
+  background-image: url('image/1.jpg');
+  background-size: cover;
+  background-position: center;
+  align-content: center;
+}
 .modal {
   position: fixed;
   inset: 0;
@@ -30,9 +36,10 @@
     margin-left: 3rem;
   }
   #commentInput{
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: cursive;
     margin: 3rem;
+    padding: 1rem;
     width: 85vw;
   }
   #agregarNombre{
@@ -42,25 +49,30 @@
     margin-bottom: 3rem;
   }
   #comments{
+    overflow: auto;
     padding: 0;
     margin-bottom: 2rem;
     margin-left: 3rem;
     font-size: 3rem;
     width: 85vw;
+    height: 65vh;
   }
+  #comments div:nth-child(even){background: rgba(64,224,222,0.14);}
   #comments div{
-    border: 0.2rem solid gray;
+    background: rgba(118,238,7,0.14);
     margin-bottom: 1.5rem;
     padding: 1rem;
   }
   #comments div b{
     padding: 0;
     margin: 0;
+    color: white;
   }
   #comments div p{
     padding: 0;
     margin: 0;
     font-family: cursive;
+    color: white;
   }
   #comments div button{
     padding: 0;

@@ -1,3 +1,20 @@
+/* new Audio(...) → crea un reproductor de sonido
+El navegador precarga el audio
+No se reproduce hasta llamar .play() */
+const notificationSound = new Audio('assets/sounds/notification.mp3')
+
+function notifyUser() { /*Función reutilizable para notificar*/
+  // Intentar reproducir sonido
+  notificationSound.play().catch(() => { /*Intenta reproducir el sonido.. catch Captura error si:*/
+    // Si el sonido falla (modo silencioso o bloqueo)
+    if (navigator.vibrate) {
+      navigator.vibrate(200) /*Verifica si el dispositivo soporta vibración*/
+    }
+  })
+}
+
+
+
 /* +++++++++++++++++++++ Ventana Modal +++++++++++++++++++++ */
 const user=localStorage.getItem('user')/*localStorage devuelve el nombre del usuario ala variable user*/
 const ventanaModal=document.getElementById('modal')
@@ -108,6 +125,12 @@ async function dislike(id) {
     body: JSON.stringify({ user })
   })
 }
-socket.on('new-comment', loadComments)
+//socket.on('new-comment', loadComments)
+// modificando para audio notificacion
+socket.on('new-comment', () => {
+  notifyUser()
+  loadComments()
+})
+
 socket.on('update-comment', loadComments)
 loadComments()
